@@ -33,40 +33,12 @@ app.use(
     cookie: { maxAge: 4 * 60 * 60 * 1000 },
   })
 );
-app.use(cookieParser("secret"));
-require("./config/passportConfig")(passport); //to use same instance of passport in the entire server
+
 app.use(passport.initialize());
 app.use(passport.session());
-// passport.regenerate = function (req, res, next) {
-//   // Manually regenerate the session
-//   return new Promise((resolve, reject) => {
-//     req.session.regenerate((err) => {
-//       if (err) {
-//         reject(err);
-//       } else {
-//         resolve();
-//       }
-//     });
-//   })
-//     .then(() => {
-//       // Update the session ID in the Passport session
-//       return new Promise((resolve, reject) => {
-//         passport.session()(req, res, (err) => {
-//           if (err) {
-//             reject(err);
-//           } else {
-//             resolve();
-//           }
-//         });
-//       });
-//     })
-//     .then(() => {
-//       next();
-//     })
-//     .catch((err) => {
-//       next(err);
-//     });
-// };
+require("./config/passportConfig")(passport); //to use same instance of passport in the entire server
+
+app.use(cookieParser("secret"));
 
 //------------------------Middleware Done----------------------
 
