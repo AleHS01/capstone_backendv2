@@ -14,7 +14,7 @@ module.exports = (passport) => {
         if (error) {
           return next(error);
         }
-        res.send("Successful Authentication");
+        res.send(req.user);
         console.log("Just Logged In User", req.user);
       });
     })(req, res, next);
