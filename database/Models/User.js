@@ -28,6 +28,10 @@ const User = db.define(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    plaidItemId: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   },
   {
     hooks: {
